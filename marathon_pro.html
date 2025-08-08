@@ -1,0 +1,259 @@
+<html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marathon Pro - Entrena y Come como un Profesional</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --text:#e6eef6;
+      --muted:#98a2b3;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#071022 0%, #071726 100%);color:var(--text);min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:28px;}
+    .app{width:100%;max-width:1000px;background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(0,0,0,0.04));border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    h1{font-size:20px;margin:0}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .tab{padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;color:var(--muted)}
+    .tab.active{background:linear-gradient(90deg,var(--accent),#7dd3fc);color:#022; font-weight:600; border:1px solid rgba(255,255,255,0.06)}
+    .content{margin-top:16px}
+    .grid{display:grid;gap:12px}
+    @media(min-width:760px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    .card{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    h2{margin:0 0 8px 0;font-size:16px}
+    ul{margin:0;padding-left:18px;color:var(--text)}
+    p{margin:0 0 8px 0;color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+    .exercise-name{font-weight:700;color:var(--text)}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .hint{background:rgba(255,255,255,0.03);padding:10px;border-radius:8px;margin-top:8px}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .copy-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;color:var(--muted);cursor:pointer}
+    details{margin-top:10px}
+    code{background:#00111a;padding:2px 6px;border-radius:6px;color:#8de0ea;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="app" role="application" aria-label="Marathon Pro">
+    <header>
+      <div>
+        <h1>Marathon Pro</h1>
+        <div class="small">Nutrición • Entrenamiento • Gimnasio (piernas) • Trucos</div>
+      </div>
+      <div>
+        <button id="saveBtn" class="copy-btn" title="Guardar como archivo">Guardar HTML</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button class="tab active" data-tab="nutricion" role="tab">Nutrición</button>
+      <button class="tab" data-tab="entrenamiento" role="tab">Entrenamiento</button>
+      <button class="tab" data-tab="gimnasio" role="tab">Gimnasio (piernas)</button>
+      <button class="tab" data-tab="trucos" role="tab">Trucos</button>
+    </nav>
+
+    <main class="content" id="mainContent">
+      <!-- NUTRICIÓN -->
+      <section id="nutricion" class="panel" role="tabpanel">
+        <h2>Plan de alimentación diaria (ejemplos)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Desayuno</h3>
+            <ul>
+              <li>Avena + fruta + una cucharada de miel</li>
+              <li>Huevos revueltos con espinacas + pan integral</li>
+              <li>Batido: plátano + leche o bebida vegetal + proteína (opcional)</li>
+            </ul>
+            <p class="meta">Objetivo: energía estable para entrenos de la mañana. Prioriza carbohidratos complejos.</p>
+          </div>
+          <div class="card">
+            <h3>Almuerzo / Comida</h3>
+            <ul>
+              <li>Pechuga de pollo/ pescado + quinoa/pasta integral + verduras</li>
+              <li>Ensalada con garbanzos, aguacate y arroz integral</li>
+            </ul>
+            <p class="meta">Incluye proteína + vegetales + carbohidratos de calidad.</p>
+          </div>
+
+          <div class="card">
+            <h3>Cena</h3>
+            <ul>
+              <li>Salmón al horno con camote</li>
+              <li>Tortilla de claras con verduras</li>
+            </ul>
+            <p class="meta">Ligera y rica en proteína para recuperación nocturna.</p>
+          </div>
+
+          <div class="card">
+            <h3>Snacks</h3>
+            <ul>
+              <li>Frutos secos (puñado)</li>
+              <li>Yogur griego + fruta</li>
+              <li>Barra de avena casera</li>
+            </ul>
+            <p class="meta">Evita azúcares simples antes de entrenar; usa durante tiradas largas según tolerancia.</p>
+          </div>
+        </div>
+
+        <div class="card hint">
+          <strong>Consejo nutricional importante:</strong>
+          <ul>
+            <li>Practica la alimentación e hidratación que usarás el día del maratón durante tus tiradas largas (&gt;25 km).</li>
+            <li>Prioriza carbohidratos 2–3 días antes de la carrera (carbo-loading moderado).</li>
+            <li>Si buscas perder grasa, no recortes demasiado las calorías en semanas de mucho volumen de entrenamiento.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ENTRENAMIENTO -->
+      <section id="entrenamiento" class="panel" style="display:none" role="tabpanel">
+        <h2>Plan semanal (ejemplo para corredor amateur con objetivo maratón)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Lunes</h3>
+            <p>Rodaje suave 8–10 km + estiramientos dinámicos y movilidad.</p>
+          </div>
+          <div class="card">
+            <h3>Martes</h3>
+            <p>Series cortas: 10 x 400 m a ritmo 5K–10K, recuperación 60–90s.</p>
+          </div>
+          <div class="card">
+            <h3>Miércoles</h3>
+            <p>Rodaje medio 10–14 km + fuerza de core (10–15 min).</p>
+          </div>
+          <div class="card">
+            <h3>Jueves</h3>
+            <p>Series largas: 3–5 x 2 km a ritmo de 10K–media maratón, recuperaciones largas.</p>
+          </div>
+          <div class="card">
+            <h3>Viernes</h3>
+            <p>Descanso activo: 30–45 min bici suave o natación; movilidad.</p>
+          </div>
+          <div class="card">
+            <h3>Sábado</h3>
+            <p>Tirada larga: 18–32 km según fase (incrementar progresivamente). Practica ingesta/hidratación.</p>
+          </div>
+          <div class="card">
+            <h3>Domingo</h3>
+            <p>Rodaje regenerativo 6–8 km o descanso total si la acumulación es alta.</p>
+          </div>
+        </div>
+
+        <details>
+          <summary class="small">Frecuencia de fuerza recomendada</summary>
+          <p class="small">2 sesiones semanales de fuerza (30–45 min) enfocadas en piernas + estabilidad. Evita fatigar mucho antes de la tirada larga.</p>
+        </details>
+      </section>
+
+      <!-- GIMNASIO PIERNA -->
+      <section id="gimnasio" class="panel" style="display:none" role="tabpanel">
+        <h2>Ejercicios de gimnasio focalizados en piernas (para maratonistas)</h2>
+        <p class="small">Objetivo: fuerza específica, resistencia muscular y prevención de lesiones. Prioriza técnica y progresión.</p>
+
+        <div class="grid">
+          <!-- Exercise 1 -->
+          <div class="card">
+            <div class="exercise-name">1) Sentadilla con barra (Back squat)</div>
+            <p><strong>Técnica correcta:</strong> coloca la barra sobre la parte alta de la espalda (no en el cuello). Pies a anchura de hombros, puntas ligeramente hacia afuera. Baja controlado hasta que los muslos queden al menos paralelos, empuja con talón y glúteo para subir. Mantén el torso erguido y la espalda neutra.</p>
+            <p class="meta">Sets/Reps sugeridos: 3–4 x 6–10 (fuerza) o 3 x 10–12 (endurance). Evitar cargas que comprometan la forma.</p>
+            <p class="small">Errores comunes: dejar que las rodillas colapsen hacia dentro, curvar la espalda, bajar solo con la cintura.</p>
+          </div>
+
+          <!-- Exercise 2 -->
+          <div class="card">
+            <div class="exercise-name">2) Zancadas caminando con mancuernas (Walking lunges)</div>
+            <p><strong>Técnica correcta:</strong> sujeta una mancuerna en cada mano, paso largo hacia adelante, baja hasta que la rodilla trasera casi toque el suelo (90° en la delantera). Empuja con el talón delantero para volver a la posición y avanza. Mantén torso erguido y mirada al frente.</p>
+            <p class="meta">Sets/Reps sugeridos: 3 x 8–12 por pierna. Excelente para fuerza unilateral y equilibrio.</p>
+            <p class="small">Consejo: usar step-ups alternando en días de potencia para simular el gesto de carrera en cuestas.</p>
+          </div>
+
+          <!-- Exercise 3 -->
+          <div class="card">
+            <div class="exercise-name">3) Peso muerto rumano</div>
+            <p><strong>Técnica correcta:</strong> piernas ligeramente flexionadas, barra o mancuernas cercanas al cuerpo. Inclina la cadera hacia atrás, manteniendo la espalda recta y el core comprometido, baja hasta sentir el estiramiento en isquiotibiales y sube apretando glúteos.</p>
+            <p class="meta">Sets/Reps sugeridos: 3–4 x 6–10. Fortalece la cadena posterior (isquiotibiales + glúteos).</p>
+            <p class="small">Evitar: redondear la espalda o doblar excesivamente las rodillas.</p>
+          </div>
+
+          <!-- Exercise 4 -->
+          <div class="card">
+            <div class="exercise-name">4) Elevaciones de talones (gemelos) de pie</div>
+            <p><strong>Técnica correcta:</strong> de pie sobre un borde (escalón), sube sobre las puntas lo más alto posible, mantén 1–2s arriba, baja lentamente por debajo del nivel del escalón para estirar el gemelo.</p>
+            <p class="meta">Sets/Reps sugeridos: 3 x 12–20 (resistencia). Fortalece pantorrillas para mejor propulsión y tolerancia a impacto.</p>
+            <p class="small">Variante: elevar con una pierna para trabajo unilateral.</p>
+          </div>
+
+          <!-- Exercise 5 -->
+          <div class="card">
+            <div class="exercise-name">5) Step-ups en banco (unilateral)</div>
+            <p><strong>Técnica correcta:</strong> sube al banco impulsándote con el talón, extiende la cadera al subir, baja controladamente. Mantén torso recto y evita impulsarte con la pierna de apoyo.</p>
+            <p class="meta">Sets/Reps sugeridos: 3 x 8–12 por pierna. Mejora fuerza unilateral, transferencia directa a la zancada de carrera.</p>
+          </div>
+
+          <!-- Exercise 6 -->
+          <div class="card">
+            <div class="exercise-name">6) Sentadilla búlgara (split squat búlgaro)</div>
+            <p><strong>Técnica correcta:</strong> pie trasero apoyado en banco, pie delantero plantado. Baja hasta 90° en la rodilla delantera y sube empujando con el talón. Controla equilibrio y no dejes que la rodilla delantera avance demasiado sobre el pie.</p>
+            <p class="meta">Sets/Reps sugeridos: 3 x 8–10 por pierna. Muy efectiva para simular esfuerzo unilateral y prevenir asimetrías.</p>
+          </div>
+        </div>
+
+        <div class="card hint">
+          <strong>Cómo integrar estos ejercicios en la semana:</strong>
+          <ul>
+            <li>Haz 2 sesiones de fuerza/semana: una de fuerza (cargas mayores, menos reps) y otra de resistencia/potencia (más repeticiones, movimientos explosivos moderados como step-ups con velocidad).</li>
+            <li>No hagas sesiones de fuerza muy intensas 48–72 h antes de tu tirada larga más importante.</li>
+            <li>Incluye movilidad (cadera, tobillo) y trabajo de core 10–15 min al final de cada sesión.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TRUCOS -->
+      <section id="trucos" class="panel" style="display:none" role="tabpanel">
+        <h2>Trucos y recomendaciones prácticas</h2>
+        <ul>
+          <li>Usa las tiradas largas para practicar hidratación y geles: ¿cómo te sientan? ¿qué cantidades toleras?</li>
+          <li>Calzado: alterna zapatillas de entrenamiento y unas más ligeras para tempo/series.</li>
+          <li>Sueño: prioriza 7–9 h por noche en fases de volumen alto.</li>
+          <li>Prevención: masaje, foam rolling y días de recuperación activa.</li>
+          <li>Controla el volumen semanal: aumenta <strong>máximo 10% por semana</strong> para evitar sobrecarga.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      Guarda este archivo y ábrelo en tu navegador. ¿Quieres que lo convierta en un PDF o que genere una versión imprimible?
+    </footer>
+  </div>
+
+  <script>
+    // Simple tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const id = tab.dataset.tab;
+        panels.forEach(p => p.style.display = (p.id === id) ? 'block' : 'none');
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    });
+
+    // Save file button (download current HTML)
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'marathon_pro.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      alert('Archivo descargado: marathon_pro.html');
+    });
+  </script>
+
+
+</body></html>
